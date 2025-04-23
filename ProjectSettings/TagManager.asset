@@ -5,8 +5,9 @@ TagManager:
   serializedVersion: 2
   tags:
   - PotionRed
-  - PotionYellow
   - PotionBlue
+  - PotionGreen
+  - PotionPurple
   layers:
   - Default
   - TransparentFX
