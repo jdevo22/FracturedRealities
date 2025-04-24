@@ -10,11 +10,26 @@ public class TreeMover : MonoBehaviour
     public float moveSpeed = 2f;
     public float rotationSpeed = 50f;
 
+    [Header("Activation Settings")]
+    public Transform player;
+    public float activationDistance = 10f;
+
     private bool movementComplete = false;
+    private bool movementStarted = false;
 
     void Update()
     {
-        if (!movementComplete)
+        if (movementComplete || player == null)
+            return;
+
+        float distanceToPlayer = Vector3.Distance(transform.position, player.position);
+
+        if (distanceToPlayer <= activationDistance)
+        {
+            movementStarted = true;
+        }
+
+        if (movementStarted)
         {
             RotateToTargetZ();
             MoveToTargetZ();
